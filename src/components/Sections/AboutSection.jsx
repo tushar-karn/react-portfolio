@@ -116,21 +116,14 @@ const AboutSection = () => {
                   isDarkMode ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                I believe technology should be a bridge that connects people and
-                solves real-world problems. My passion lies in crafting digital
-                experiences that are not just functional, but delightful and
-                accessible to everyone.
+                I’m a passionate full stack developer who believes technology is a powerful tool to connect people and address real-world challenges. Since 2022, I’ve been building digital solutions that are not only functional but also inclusive and user-centric.
               </p>
               <p
                 className={`text-base leading-relaxed ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
               >
-                When I'm not coding, you'll find me exploring new frameworks,
-                contributing to open source, or mentoring aspiring developers. I
-                love the constant evolution of web technologies and the endless
-                possibilities they bring to create meaningful digital
-                experiences.
+                When I’m not developing, I enjoy diving into new frameworks, contributing to open-source projects, and guiding fellow developers. I’m driven by the ever-evolving web ecosystem and its potential to make a positive impact through intuitive, meaningful experiences.
               </p>
             </motion.div>
 
@@ -185,7 +178,7 @@ const AboutSection = () => {
                 <img src={SIGNATURE} alt="Alex" className="w-28" />
               </div>
               <div className="text-lg font-medium text-blue-500 mt-2">
-                Alex Johnson
+                Tushar Karn
               </div>
             </motion.div>
           </motion.div>
@@ -284,13 +277,16 @@ const AboutSection = () => {
               Ready to bring your ideas to life?
             </p>
 
-            <motion.button
-              whileHover={{ y: -2, scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300"
-            >
-              Let's Work Together
-            </motion.button>
+            <a href="mailto:contact@tushar.live">
+              <motion.button
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300"
+              >
+                Let's Work Together
+              </motion.button>
+            </a>
+
           </motion.div>
         </motion.div>
         

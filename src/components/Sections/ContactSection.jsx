@@ -4,12 +4,17 @@ import { Send } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { CONTACT_INFO, SOCIAL_LINKS } from "../../utils/data";
 import { containerVariants, itemVariants } from "../../utils/helper";
-import TextInput from '../Input/TextInput'
+import TextInput from "../Input/TextInput";
 import SuccessModel from "../SuccessModel";
 
 const ContactSection = () => {
   const { isDarkMode } = useTheme();
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
     message: "",
@@ -32,10 +37,32 @@ const ContactSection = () => {
       ...formData,
       [key]: value,
     });
+
+    // Clear error when typing
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [key]: "",
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {
+      name: !formData.name.trim() ? "Name is required" : "",
+      email: !formData.email.trim()
+        ? "Email is required"
+        : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        ? "Enter a valid email"
+        : "",
+      message: !formData.message.trim() ? "Message is required" : "",
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some((error) => error !== "");
+    if (hasErrors) return;
+
     setIsSubmitting(true);
 
     // Simulate API call
@@ -45,11 +72,11 @@ const ContactSection = () => {
     setShowSuccess(true);
     setFormData({ name: "", email: "", message: "" });
 
-    // Auto hide success modal after 3 seconds
     setTimeout(() => setShowSuccess(false), 3000);
   };
 
-  return <section
+  return (
+    <section
       id="contact"
       ref={sectionRef}
       className={`py-24 px-6 ${
@@ -71,7 +98,6 @@ const ContactSection = () => {
       </motion.div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        
         {/* Section Header */}
         <motion.div
           initial="hidden"
@@ -126,34 +152,51 @@ const ContactSection = () => {
 
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <TextInput
-                    isDarkMode={isDarkMode}
-                    value={formData.name}
-                    handleInputChange={(text) =>
-                      handleInputChange("name", text)
-                    }
-                    label="Your Name"
-                  />
+                  <div>
+                    <TextInput
+                      isDarkMode={isDarkMode}
+                      value={formData.name}
+                      handleInputChange={(text) =>
+                        handleInputChange("name", text)
+                      }
+                      label="Your Name"
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+                    )}
+                  </div>
 
-                  <TextInput
-                    isDarkMode={isDarkMode}
-                    label="Email Address"
-                    value={formData.email}
-                    handleInputChange={(text) =>
-                      handleInputChange("email", text)
-                    }
-                  />
+                  <div>
+                    <TextInput
+                      isDarkMode={isDarkMode}
+                      label="Email Address"
+                      value={formData.email}
+                      handleInputChange={(text) =>
+                        handleInputChange("email", text)
+                      }
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+                    )}
+                  </div>
                 </div>
 
-                <TextInput
-                  isDarkMode={isDarkMode}
-                  label="Your Message"
-                  value={formData.message}
-                  textarea
-                  handleInputChange={(text) =>
-                    handleInputChange("message", text)
-                  }
-                />
+                <div>
+                  <TextInput
+                    isDarkMode={isDarkMode}
+                    label="Your Message"
+                    value={formData.message}
+                    textarea
+                    handleInputChange={(text) =>
+                      handleInputChange("message", text)
+                    }
+                  />
+                  {errors.message && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
 
                 <motion.button
                   disabled={isSubmitting}
@@ -186,7 +229,7 @@ const ContactSection = () => {
             </motion.div>
           </motion.div>
 
-           {/* Contact Info & Social Links */}
+          {/* Contact Info & Social Links */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -280,7 +323,6 @@ const ContactSection = () => {
               </p>
             </motion.div>
           </motion.div>
-
         </div>
 
         {/* Bottom CTA */}
@@ -307,24 +349,30 @@ const ContactSection = () => {
               Sometimes a conversation is worth a thousand messages. Feel free
               to schedule a call to discuss your project.
             </p>
-            <motion.button
-              whileHover={{ y: -2, scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className={`px-6 py-3 rounded-full border font-medium transition-all duration-300 ${
-                isDarkMode
-                  ? "border-gray-600 hover:border-blue-500 hover:text-blue-400"
-                  : "border-gray-300 hover:border-blue-500 hover:text-blue-600"
-              }`}
-            >
-              Schedule a Call
-            </motion.button>
+            <a href="tel:+919876543210">
+              <motion.button
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`px-6 py-3 rounded-full border font-medium transition-all duration-300 ${
+                  isDarkMode
+                    ? "border-gray-600 hover:border-blue-500 hover:text-blue-400"
+                    : "border-gray-300 hover:border-blue-500 hover:text-blue-600"
+                }`}
+              >
+                Schedule a Call
+              </motion.button>
+            </a>
           </motion.div>
         </motion.div>
-        
       </div>
 
-      <SuccessModel showSuccess={showSuccess} setShowSuccess={setShowSuccess} isDarkMode={isDarkMode} />
+      <SuccessModel
+        showSuccess={showSuccess}
+        setShowSuccess={setShowSuccess}
+        isDarkMode={isDarkMode}
+      />
     </section>
+  );
 };
 
 export default ContactSection;

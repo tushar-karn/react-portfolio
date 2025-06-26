@@ -32,11 +32,11 @@ export const SKILLS_CATEGORY = [
     icon: Code2,
     description: "Crafting beautiful, responsive user interfaces",
     skills: [
-      { name: "React", level: 75, color: "bg-blue-500" },
-      { name: "Laravel", level: 70, color: "bg-blue-600" },
+      { name: "React", level: 70, color: "bg-blue-500" },
+      { name: "Laravel", level: 50, color: "bg-blue-600" },
       { name: "HTML", level: 77, color: "bg-gray-800" },
-      { name: "Tailwind CSS", level: 60, color: "bg-cyan-500" },
-      { name: "Framer Motion", level: 85, color: "bg-pink-500" },
+      { name: "Tailwind CSS", level: 55, color: "bg-cyan-500" },
+      { name: "JavaScript", level: 60, color: "bg-pink-500" },
     ],
   },
   {
@@ -44,11 +44,11 @@ export const SKILLS_CATEGORY = [
     icon: Server,
     description: "Building robust server-side solutions",
     skills: [
-      { name: "Node.js", level: 90, color: "bg-green-500" },
-      { name: "Express.js", level: 88, color: "bg-gray-700" },
-      { name: "Python", level: 85, color: "bg-yellow-500" },
-      { name: "GraphQL", level: 80, color: "bg-pink-600" },
-      { name: "REST APIs", level: 92, color: "bg-orange-500" },
+      { name: "Node.js", level: 70, color: "bg-green-500" },
+      { name: "Express.js", level: 75, color: "bg-gray-700" },
+      { name: "Python", level: 60, color: "bg-yellow-500" },
+      { name: "Docker", level: 60, color: "bg-pink-600" },
+      { name: "REST APIs", level: 70, color: "bg-orange-500" },
     ],
   },
   {
@@ -56,11 +56,11 @@ export const SKILLS_CATEGORY = [
     icon: Database,
     description: "Managing and optimizing data storage",
     skills: [
-      { name: "MongoDB", level: 88, color: "bg-green-600" },
-      { name: "MySQL", level: 85, color: "bg-blue-700" },
-      { name: "Redis", level: 80, color: "bg-red-500" },
-      { name: "Prisma", level: 82, color: "bg-indigo-600" },
-      { name: "Firebase", level: 78, color: "bg-yellow-600" },
+      { name: "MongoDB", level: 60, color: "bg-green-600" },
+      { name: "MySQL", level: 70, color: "bg-blue-700" },
+      { name: "Redis", level: 50, color: "bg-red-500" },
+      { name: "AWS S3", level: 55, color: "bg-indigo-600" },
+      { name: "Firebase", level: 45, color: "bg-yellow-600" },
     ],
   },
   {
@@ -94,7 +94,7 @@ export const STATS = [
   { number: "5+", label: "Projects Completed" },
   { number: "3+", label: "Years Experience" },
   { number: "10+", label: "Technologies" },
-  { number: "100%", label: "Client Satisfaction" },
+  { number: "5+", label: "Team Collaboration" },
 ];
 
 export const PROJECTS = [
@@ -112,56 +112,19 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    title: "Blog App with AI Post Generator",
-    description:
-      "A full-stack blog app using the MERN stack — with full Markdown support, tag filtering, and an integrated AI-powered blog post generator!",
-    image: PROJECT_IMG_2,
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
-    liveUrl: "https://youtu.be/tUnGudIBBjQ",
-    githubUrl: "#",
-    featured: true,
-    category: "Full Stack",
-  },
-  {
-    id: 3,
     title: "Task Management App",
     description:
       "Collaborative project management tool with real-time updates, team chat, and advanced analytics dashboard.",
     image: PROJECT_IMG_3,
-    tags: ["Next.js", "TypeScript", "Node.js", "MongoDb"],
-    liveUrl: "https://youtu.be/fZK57PxKC-0",
-    githubUrl: "#",
+    tags: ["React.js", "Express.js", "Node.js", "MongoDb"],
+    liveUrl: "https://taskmanagerfrontend-m2j1.onrender.com/",
+    githubUrl: "https://github.com/tushar-karn/TaskManager",
     featured: true,
     category: "Web App",
   },
-  {
-    id: 4,
-    title: "AI-Powered Interview Prep App",
-    description:
-      "A smart AI-powered Interview Preparation App using the MERN stack — along with the Gemini API for intelligent Q&A generation",
-    image: PROJECT_IMG_4,
-    tags: ["Next.js", "TypeScript", "Node.js", "MongoDb"],
-    liveUrl: "https://youtu.be/yKB9OyM-ao4",
-    githubUrl: "#",
-    featured: false,
-    category: "Web App",
-  },
 
   {
-    id: 5,
-    title: "Resume Builder App",
-    description:
-      "a fully functional Resume Builder App using the MERN stack along with Tailwind CSS for a clean, modern UI.",
-    image: PROJECT_IMG_5,
-    tags: ["Next.js", "TypeScript", "Node.js", "MongoDb"],
-    liveUrl: "https://youtu.be/q3u_fpkjLk8",
-    githubUrl: "#",
-    featured: false,
-    category: "Web App",
-  },
-
-  {
-    id: 6,
+    id: 3,
     title: "Expense Tracker App",
     description:
       "This app includes user authentication with JWT, income and expense tracking, interactive charts, and the ability to export data in Excel format.",
@@ -199,48 +162,32 @@ export const JOURNEY_STEPS = [
   },
   {
     year: "2022",
-    title: "First Internship",
-    company: "TechStart Inc.",
+    title: "Independent Full Stack Developer",
+    company: "Self-Initiated",
     description:
-      "Joined as a frontend intern, working with React and learning modern development practices. Contributed to 3 client projects.",
-    icon: Briefcase,
-    color: "bg-green-500",
-  },
-  {
-    year: "2022",
-    title: "Computer Science Degree",
-    company: "University of Technology",
-    description:
-      "Graduated with honors, specializing in web technologies and software engineering. Led the final year project team.",
-    icon: GraduationCap,
-    color: "bg-purple-500",
-  },
-  {
-    year: "2023",
-    title: "Full Stack Developer",
-    company: "Digital Solutions Ltd.",
-    description:
-      "Promoted to full-time developer role. Built end-to-end applications using MERN stack and led junior developer mentoring.",
+      "Started building full-stack applications independently using the MERN stack. Focused on hands-on learning through real-world projects and continuous skill development.",
     icon: Rocket,
     color: "bg-orange-500",
   },
+
   {
     year: "2024",
-    title: "Freelance & Open Source",
-    company: "Independent",
+    title: "Remote Work",
+    company: "Outlier AI",
     description:
-      "Started freelancing and contributing to open source projects. Launched 3 successful web applications for clients.",
-    icon: Award,
-    color: "bg-pink-500",
+      "Worked as a Math expert training AI models by evaluating and generating math content. Contributed remotely to multiple high-quality assessment and feedback projects.",
+    icon: Briefcase,
+    color: "bg-green-500",
   },
+  
   {
-    year: "2025",
-    title: "Senior Developer",
-    company: "Present",
+    year: "2022",
+    title: "Computer Science Student",
+    company: "Lovely Professional University",
     description:
-      "Currently building innovative solutions and exploring new technologies like AI integration and advanced animations.",
-    icon: Zap,
-    color: "bg-cyan-500",
+      "Final-year student specializing in web technologies and software engineering. Currently leading the final year project team with a focus on real-world applications.",
+    icon: GraduationCap,
+    color: "bg-purple-500",
   },
 ];
 
